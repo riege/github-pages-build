@@ -24,7 +24,9 @@ select `Pages`. Set
 * GitHub Pages visibility to **Public** (not required if repository is already public)
 * Build and deployment to **GitHub Actions**
 
-![](img/pages-settings.png | height=305)
+**Screenshot:**
+
+![](https://github.com/riege/github-pages-build/blob/main/img/pages-settings.png?raw=true|height=305)
 
 ### Basic simple scenario with one `docs` folder
 
