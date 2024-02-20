@@ -44,7 +44,7 @@ jobs:
         with:
           repository: riege/github-pages-build
           sparse-checkout: pages-layout
-          path: jekyll-files
+          path: _github-pages-build
 
       - name: Apply blueprints
         run: |
@@ -54,8 +54,15 @@ jobs:
           ls -l
           echo github.workspace/..:
           ls -l ../
-          echo github.workspace/pages-layout:
-          ls -l pages-layout/
+          echo github.workspace/_github-pages-build:
+          ls -l _github-pages-build/
+          echo github.workspace/_github-pages-build/pages-layout:
+          ls -l _github-pages-build/pages-layout/
+          mkdir -p build/docs
+          cp -r _github-pages-build/pages-layout/* build/docs
+          cp -r docs/* build/docs
+          echo build/docs:
+          ls -l build/docs/
           ## mkdir -p build/docs/schemas
           ## cp -r src/main/resources/schemas/* build/docs/schemas/
           #   at his point, "build/docs" contains folders
