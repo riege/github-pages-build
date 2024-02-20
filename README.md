@@ -68,5 +68,9 @@ Summary for your repository
 
 Check the repository workflow `Actions`. There should be an action publishing the GitHub Pages.
 
+### Other scenarios
+More complex scenarios than just supporting markdown from one `docs` folder is possible,
+but not (yet) supported by github-pages-build.
+
 ### Example
 This repository also acts as an example, see `docs/index.md` and result on https://riege.github.io/github-pages-build 
