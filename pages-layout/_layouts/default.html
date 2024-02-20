@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en-US" }}">
+  <head>
+    <!-- INSIDE default.html -->
+    <!-- copied from https://github.com/pages-themes/primer -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scope - Technical description {{ site.title}} - {{ page.title }}</title>
+    {% seo title=false %}
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ '/assets/images/logo.ico' | relative_url }}" -->
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+        <h1><img src="{{ '/assets/images/logo_riege-software-small.svg' | relative_url }}" style="width: 150px; margin-right: 10px;" alt="Riege Software">Technical description {{ site.title }}</h1>
+
+        {{ content }}
+
+        <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+            <p>
+                Disclaimer: This technical description is not part of any contractual agreements.
+                <br>
+                This decription is published by <a href="https://riege.com">Riege Software</a> under
+                <a href="{{ "/assets/files/license.txt?v=" | append: site.github.build_revision | relative_url }}">UPL license</a>.
+                <a href="https://www.riege.com/imprint/">Imprint</a>
+                <a href="https://www.riege.com/privacy/">Privacy</a>
+            </p>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js" integrity="sha512-aZotBPy6dqn8yVaLJwSrkJ+QxuxV695A4dgodAMvTU5JyNi5mhrr+LeaD3GSS+lx1SMFKNs0tu5ZMJEgNZQP2Q==" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+name: Deploy static content from /docs to GitHub Pages
+
+on: # yamllint disable-line rule:truthy
+  workflow_call:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+#permissions:
+#  contents: read
+#  pages: write
+#  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate Pages content
+        run: |
+          cd ${{ github.workspace }}
+          echo ${{ github.workspace }}
+          mkdir -p build
+          cp -r docs build/
+          ## mkdir -p build/docs/schemas
+          ## cp -r src/main/resources/schemas/* build/docs/schemas/
+          #   at his point, "build/docs" contains folders
+          #   index.md, examples (from docs)
+          #   _layouts, assets (also from docs, should be from a template dir)
+          ##   schemas (content = src/main/resources/schemas/*)
+
+      - name: Checkout blueprints
+        uses: actions/checkout@v4
+        with:
+          repository: riege/github-pages-build
+          sparse-checkout: pages-layout
+          path: jekyll-files
+
+      - name: Apply blueprints
+        run: |
+          echo ${{ github.workspace }}
+          cd ${{ github.workspace }}
+          echo github.workspace:
+          ls -l
+          echo github.workspace/..:
+          ls -l ../
+          echo github.workspace/pages-layout:
+          ls -l pages-layout/
+          ## mkdir -p build/docs/schemas
+          ## cp -r src/main/resources/schemas/* build/docs/schemas/
+          #   at his point, "build/docs" contains folders
+          #   index.md, examples (from docs)
+          #   _layouts, assets (also from docs, should be from a template dir)
+          ##   schemas (content = src/main/resources/schemas/*)
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Build HTML from pages .md and .html
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: build/docs
+          destination: build/pages
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/pages
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
