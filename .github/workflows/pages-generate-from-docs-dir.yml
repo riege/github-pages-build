@@ -29,7 +29,6 @@ jobs:
       - name: Generate Pages content
         run: |
           cd ${{ github.workspace }}
-          echo ${{ github.workspace }}
           mkdir -p build
           cp -r docs build/
           ## mkdir -p build/docs/schemas
