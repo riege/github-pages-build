@@ -48,27 +48,25 @@ jobs:
 
       - name: Apply blueprints
         run: |
-          echo ${{ github.workspace }}
+          # Example when this is invoked from a repo playground-mskopp2:
+          # github.workspace = /home/runner/work/playground-mskopp2/playground-mskopp2
+          #   it contains the checked out repository playground-mskopp2
+          #   plus the contant of riege/github-pages-build
+          #   limited to root folder files plus sub directlry pages-layout
+          #   witin the folder named _github-pages-build
+          # So ${{ github.workspace }}/_github-pages-build/pages-layout
+          # contains the _layouts and assets folder.
+          # 
           cd ${{ github.workspace }}
-          echo github.workspace:
-          ls -l
-          echo github.workspace/..:
-          ls -l ../
-          echo github.workspace/_github-pages-build:
-          ls -l _github-pages-build/
-          echo github.workspace/_github-pages-build/pages-layout:
-          ls -l _github-pages-build/pages-layout/
           mkdir -p build/docs
           cp -r _github-pages-build/pages-layout/* build/docs
           cp -r docs/* build/docs
-          echo build/docs:
-          ls -l build/docs/
-          ## mkdir -p build/docs/schemas
-          ## cp -r src/main/resources/schemas/* build/docs/schemas/
+          ### mkdir -p build/docs/schemas
+          ### cp -r src/main/resources/schemas/* build/docs/schemas/
           #   at his point, "build/docs" contains folders
           #   index.md, examples (from docs)
           #   _layouts, assets (also from docs, should be from a template dir)
-          ##   schemas (content = src/main/resources/schemas/*)
+          ###   schemas (content = src/main/resources/schemas/*)
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
