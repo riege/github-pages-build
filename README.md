@@ -21,7 +21,7 @@ The repository in question needs to be enabled for GitHub Pages.
 
 Go to repository `Settings`, then on left side in section `Code and automation` 
 select `Pages`. Set
-* GitHub Pages visibility to **Public**
+* GitHub Pages visibility to **Public** (not required if repository is already public)
 * Build and deployment to **GitHub Actions**
 
 ![](img/pages-settings.png | height=305)
@@ -67,3 +67,6 @@ Summary for your repository
 * Commit and push to the repository.
 
 Check the repository workflow `Actions`. There should be an action publishing the GitHub Pages.
+
+### Example
+This repository also acts as an example, see `docs/index.md` and result on https://riege.github.io/github-pages-build 
