@@ -72,5 +72,9 @@ Check the repository workflow `Actions`. There should be an action publishing th
 More complex scenarios than just supporting markdown from one `docs` folder is possible,
 but not (yet) supported by github-pages-build.
 
+As a more complex example, the Riege Software private repository `xml-shippingorder`
+uses an adopted `pages.yml` based upon `pages-generate-from-docs-dir.yml` with
+some enhancements.
+
 ### Example
 This repository also acts as an example, see `docs/index.md` and result on https://riege.github.io/github-pages-build 
