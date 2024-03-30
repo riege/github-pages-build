@@ -68,7 +68,7 @@ jobs:
           ###   schemas (content = src/main/resources/schemas/*)
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
         
       - name: Build HTML from pages .md and .html
         uses: actions/jekyll-build-pages@v1
