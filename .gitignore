@@ -1,1 +1,29 @@
+# Gradle work directory
+.gradle
+
+# Build output directies
+/target
+*/target
+/build
+*/build
+testdb
+/bin
+*/bin
+
+# IntelliJ IDEA
+out
+*.ipr
+*.iml
+*.iws
+.idea/
+.idea_modules/
+atlassian-ide-plugin.xml
 /.idea/
+
+# Eclipse
+.project
+.settings/
+.classpath
+
+# Visual Studio
+.vscode/
