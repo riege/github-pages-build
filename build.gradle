@@ -9,6 +9,7 @@ repositories {
 spotless {
     format 'html', {
         target '**/*.html'
+        targetExclude 'pages-layout/_layouts/home.html', 'pages-layout/_layouts/page.html', 'pages-layout/_layouts/post.html'
         eclipseWtp('html')
         trimTrailingWhitespace()
         indentWithSpaces()
