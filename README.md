@@ -65,12 +65,16 @@ jobs:
     uses: "riege/github-pages-build/.github/workflows/pages-generate-from-docs-dir.yml@main"
 ```
 
-Summary for your repository
-* enabled GitHub Pages in repositiory settings. This requires administration permissions.  
-* create top level `docs` folder in repository.
-* create a file `index.md` with the `docs` folder.
-* create a file `pages.yml` within direcory `.github/workflows` in repository as above.
+Summary for your repository:
+* Enable GitHub Pages in repositiory settings. This requires administration permissions.
+* Create top level `docs` folder in repository.
+* Create a file `index.md` with the `docs` folder.
+* Create a file `pages.yml` within direcory `.github/workflows` in repository as above.
 * Commit and push to the repository.
+* Consider adding the topic `ghpages` to the `About` section on the main GitHub page of your
+  repository. This would add an easy method to search for our organisational repositories
+  which use this reusable workflow with the same layout via the link
+  https://github.com/search?q=org%3Ariege%20topic%3Aghpages&type=repositories
 
 Check the repository workflow `Actions`. There should be an action publishing the GitHub Pages.
 
