@@ -29,3 +29,6 @@ jobs:
   # Single pages job since we're just building and deploying GitHub pages
   pages:
     uses: "riege/github-pages-build/.github/workflows/pages-generate-from-docs-dir.yml@main"
+    with:
+      from1: img
+      to1: demo-img
