@@ -78,15 +78,32 @@ https://github.com/search?q=org%3Ariege%20topic%3Aghpages&type=repositories
 
 Check the repository workflow `Actions`. There should be an action publishing the GitHub Pages.
 
-### Other scenarios
+### More complex scenarios
 
-More complex scenarios than just supporting markdown from one `docs` folder is possible,
+- More complex scenarios than just supporting markdown from one `docs` folder is possible,
 but not (yet) supported by github-pages-build.
-
-As a more complex example, the Riege Software private repository `xml-shippingorder`
-uses an adopted `pages.yml` based upon `pages-generate-from-docs-dir.yml` with
-some enhancements.
+- In theory every other complex scenarios can be covered by building an  `pages.yml` based
+upon `pages-generate-from-docs-dir.yml` with individial enhancements.
+- Another typical case is to copy some resources from underneath the `src` repository folder
+into a subfolder of `docs/` and referring it from `.md` files.
+Especially for this scenario it is possible to provide a from-folder-path and
+a to-folder-path.
+Currently, 2 sets are supported (`from1` and `to1`, `from2` and `to2`). This repository
+itself demonstrates how it works by the following usage. Another common combination example is
+`from1: src/main/resources/schemas` and `to1: schemas` and the `.md` file using links to
+`schemas/some-filename.xsd`.
 
 ### Example
 
 This repository also acts as an example, see `docs/index.md` and result on https://riege.github.io/github-pages-build
+
+This repository uses `from1` and `to1` for demonstration purpose:
+```
+jobs:
+  pages:
+    uses: "riege/github-pages-build/.github/workflows/pages-generate-from-docs-dir.yml@main"
+    with:
+      from1: img
+      to1: demo-img
+```
+
