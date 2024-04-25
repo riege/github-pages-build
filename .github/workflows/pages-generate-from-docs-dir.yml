@@ -85,6 +85,9 @@ jobs:
           ###   schemas (content = src/main/resources/schemas/*)
 
       - name: Copy recursively FROM1 to TO1, e.g. from1=src/main/resources/schemas to1=schemas
+        # another option to do the copy is replacing the 'run: mkdir.. cp ..'
+        # workflow with a programmed action, which could be:
+        # uses: canastro/copy-action@0.0.2 with: source: "${{ inputs.from1 }}/" target: "build/docs/${{ inputs.to1 }}/"
         if: ${{ inputs.from1 }}
         run: |
           mkdir -p build/docs/${{ inputs.to1 }}
