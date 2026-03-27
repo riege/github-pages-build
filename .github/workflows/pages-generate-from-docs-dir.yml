@@ -100,7 +100,7 @@ jobs:
           cp -r ${{ inputs.from2 }}/* build/docs/${{ inputs.to2 }}/
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Build HTML from pages .md and .html
         uses: actions/jekyll-build-pages@v1
