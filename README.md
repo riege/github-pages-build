@@ -92,6 +92,8 @@ Check the repository workflow `Actions`. There should be an action publishing th
   itself demonstrates how it works by the following usage. Another common combination example is
   `from1: src/main/resources/schemas` and `to1: schemas` and the `.md` file using links to
   `schemas/some-filename.xsd`.
+- If your documentation uses git-lfs, e.g. to provide PDFs or other binary files, you need to switch
+  on git-lfs during checkout using `lfs-checkout: true`.
 
 ### Example
 
