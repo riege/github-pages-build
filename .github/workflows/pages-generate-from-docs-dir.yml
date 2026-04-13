@@ -46,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           lfs: ${{ inputs.lfs-checkout }}
 
@@ -63,7 +63,7 @@ jobs:
           ##   schemas (content = src/main/resources/schemas/*)
 
       - name: Checkout blueprints
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           repository: riege/github-pages-build
           sparse-checkout: pages-layout
